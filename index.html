@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Monexia personal budget and expense tracker">
+    <title>Monexia | Budget Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="brand">
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png"
+                alt="Monexia financial logo"
+                width="45"
+            >
+            <div>
+                <h1>Monexia</h1>
+                <p>Simple Financial Management for Everyone</p>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#add-expense">Add Expense</a>
+            <a href="#transactions">Transactions</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Dashboard -->
+        <section class="welcome-section" id="dashboard">
+            <h2>My Budget Dashboard</h2>
+            <p>Welcome! Manage your income, expenses and savings easily.</p>
+        </section>
+
+        <!-- Summary Cards -->
+        <section class="summary-cards">
+
+            <div class="card balance">
+                <span>Total Balance</span>
+                <h3>KSh 45,000</h3>
+                <p>Available balance</p>
+            </div>
+
+            <div class="card income">
+                <span>Total Income</span>
+                <h3>KSh 60,000</h3>
+                <p>Your total earnings</p>
+            </div>
+
+            <div class="card expenses">
+                <span>Total Expenses</span>
+                <h3>KSh 15,000</h3>
+                <p>Your total spending</p>
+            </div>
+
+        </section>
+
+        <!-- Add Expense Form -->
+        <section class="add-expense-section" id="add-expense">
+
+            <h2>Add New Expense</h2>
+            <p>Enter your transaction information below.</p>
+
+            <form id="expense-form">
+
+                <div class="form-group">
+                    <label for="expense-name">Expense Name</label>
+                    <input
+                        type="text"
+                        id="expense-name"
+                        name="expense-name"
+                        placeholder="e.g. Shopping"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="expense-amount">Amount (KSh)</label>
+                    <input
+                        type="number"
+                        id="expense-amount"
+                        name="expense-amount"
+                        placeholder="Enter amount"
+                        min="1"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="expense-category">Category</label>
+                    <select
+                        id="expense-category"
+                        name="expense-category"
+                        required
+                    >
+                        <option value="">Select Category</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Rent">Rent</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="expense-date">Date</label>
+                    <input
+                        type="date"
+                        id="expense-date"
+                        name="expense-date"
+                        required
+                    >
+                </div>
+
+                <button type="button" id="add-expense-btn">
+                    Add Expense
+                </button>
+
+            </form>
+        </section>
+
+        <!-- Expense Table -->
+        <section class="expenses-section" id="transactions">
+
+            <h2>Recent Transactions</h2>
+            <p>View your recent spending activities.</p>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Groceries</td>
+                            <td>KSh 2,500</td>
+                            <td>Food</td>
+                            <td>2026-10-20</td>
+                        </tr>
+
+                        <tr>
+                            <td>Bus Fare</td>
+                            <td>KSh 500</td>
+                            <td>Transport</td>
+                            <td>2026-10-21</td>
+                        </tr>
+
+                        <tr>
+                            <td>House Rent</td>
+                            <td>KSh 8,000</td>
+                            <td>Rent</td>
+                            <td>2026-10-22</td>
+                        </tr>
+
+                        <tr>
+                            <td>Movie</td>
+                            <td>KSh 1,500</td>
+                            <td>Entertainment</td>
+                            <td>2026-10-23</td>
+                        </tr>
+
+                        <tr>
+                            <td>Internet</td>
+                            <td>KSh 2,500</td>
+                            <td>Other</td>
+                            <td>2026-10-24</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </section>
+
+        <!-- Instructions -->
+        <section class="instructions">
+
+            <details>
+                <summary>How to use Monexia Budget Tracker</summary>
+
+                <p>1. Enter the name of your expense.</p>
+                <p>2. Enter the amount you spent.</p>
+                <p>3. Select an expense category.</p>
+                <p>4. Choose the transaction date.</p>
+                <p>5. Click Add Expense to prepare your entry.</p>
+
+                <p class="note">
+                    Note: Automatic expense recording will be
+                    implemented in a future JavaScript lesson.
+                </p>
+
+            </details>
+
+        </section>
+
+        <!-- Educational Video -->
+        <section class="video-section">
+
+            <h2>Learn Personal Budgeting</h2>
+
+            <p>
+                Watch this video to learn more about managing
+                your money and building better financial habits.
+            </p>
+
+            <div class="video-container">
+
+                <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/6Ib-b8a3x9A"
+                    title="Personal Budgeting Tips"
+                    frameborder="0"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <h3>Monexia</h3>
+        <p>Simple Financial Management for Everyone.</p>
+        <p>&copy; 2026 Monexia. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
