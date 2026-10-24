@@ -1,249 +1,253 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Monexia personal budget and expense tracker">
-    <title>Monexia | Budget Management</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-    <!-- Header -->
-    <header class="header">
-        <div class="brand">
-            <img
-                src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png"
-                alt="Monexia financial logo"
-                width="45"
-            >
-            <div>
-                <h1>Monexia</h1>
-                <p>Simple Financial Management for Everyone</p>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Monexia is a modern budgeting dashboard for tracking income, expenses, and savings."
+    />
+    <title>Monexia | Smart Budget Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand" aria-label="Monexia brand">
+        <div class="brand-mark">M</div>
+        <div>
+          <h1>Monexia</h1>
+          <p>Smart financial management</p>
         </div>
+      </div>
 
-        <nav>
-            <a href="#dashboard">Dashboard</a>
-            <a href="#add-expense">Add Expense</a>
-            <a href="#transactions">Transactions</a>
-        </nav>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#overview">Overview</a>
+        <a href="#add-entry">Add entry</a>
+        <a href="#transactions">Transactions</a>
+        <a href="#insights">Insights</a>
+      </nav>
+
+      <button class="ghost-button" type="button">Monthly report</button>
     </header>
 
-    <main class="container">
+    <main class="page-shell" id="overview">
+      <section class="hero" aria-label="Welcome summary">
+        <div class="hero-copy">
+          <p class="eyebrow">Financial wellness dashboard</p>
+          <h2>Take control of your money with clarity.</h2>
+          <p class="subtitle">
+            Track where your money comes from, where it goes, and how much you
+            are saving every month.
+          </p>
 
-        <!-- Dashboard -->
-        <section class="welcome-section" id="dashboard">
-            <h2>My Budget Dashboard</h2>
-            <p>Welcome! Manage your income, expenses and savings easily.</p>
-        </section>
+          <div class="hero-actions">
+            <a class="primary-button" href="#add-entry">Add transaction</a>
+            <a class="secondary-button" href="#transactions">Review activity</a>
+          </div>
+        </div>
 
-        <!-- Summary Cards -->
-        <section class="summary-cards">
+        <div class="hero-panel" aria-label="Savings overview">
+          <div class="mini-card highlight">
+            <span>Monthly savings</span>
+            <strong id="savings-value">KSh 0</strong>
+            <small id="savings-rate">0% of income</small>
+          </div>
 
-            <div class="card balance">
-                <span>Total Balance</span>
-                <h3>KSh 45,000</h3>
-                <p>Available balance</p>
+          <div class="mini-card">
+            <span>Budget health</span>
+            <div class="progress-track">
+              <div class="progress-bar" id="budget-progress"></div>
+            </div>
+            <small id="budget-status">On track</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Budget summary cards">
+        <article class="stat-card balance-card">
+          <span>Total balance</span>
+          <strong id="balance-total">KSh 0</strong>
+          <small>Available after expenses</small>
+        </article>
+
+        <article class="stat-card income-card">
+          <span>Total income</span>
+          <strong id="income-total">KSh 0</strong>
+          <small>Money coming in</small>
+        </article>
+
+        <article class="stat-card expense-card">
+          <span>Total expenses</span>
+          <strong id="expense-total">KSh 0</strong>
+          <small>Money going out</small>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel" id="add-entry">
+          <div class="panel-header">
+            <div>
+              <p class="section-tag">Quick add</p>
+              <h3>Add new entry</h3>
+            </div>
+          </div>
+
+          <form id="transaction-form">
+            <div class="field-grid">
+              <div class="field-group">
+                <label for="entry-type">Entry type</label>
+                <select id="entry-type" name="entry-type">
+                  <option value="expense">Expense</option>
+                  <option value="income">Income</option>
+                </select>
+              </div>
+
+              <div class="field-group">
+                <label for="entry-name">Name</label>
+                <input
+                  id="entry-name"
+                  name="entry-name"
+                  type="text"
+                  placeholder="e.g. Groceries"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="entry-amount">Amount</label>
+                <input
+                  id="entry-amount"
+                  name="entry-amount"
+                  type="number"
+                  min="1"
+                  placeholder="Enter amount"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="entry-category">Category</label>
+                <select id="entry-category" name="entry-category">
+                  <option value="Food">Food</option>
+                  <option value="Transport">Transport</option>
+                  <option value="Rent">Rent</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="Utilities">Utilities</option>
+                  <option value="Other">Other</option>
+                  <option value="Salary">Salary</option>
+                </select>
+              </div>
+
+              <div class="field-group wide">
+                <label for="entry-date">Date</label>
+                <input id="entry-date" name="entry-date" type="date" required />
+              </div>
             </div>
 
-            <div class="card income">
-                <span>Total Income</span>
-                <h3>KSh 60,000</h3>
-                <p>Your total earnings</p>
+            <button class="save-button" type="submit">Save entry</button>
+          </form>
+        </div>
+
+        <aside class="panel insights-panel" id="insights">
+          <div class="panel-header">
+            <div>
+              <p class="section-tag">Overview</p>
+              <h3>Spending insight</h3>
             </div>
+          </div>
 
-            <div class="card expenses">
-                <span>Total Expenses</span>
-                <h3>KSh 15,000</h3>
-                <p>Your total spending</p>
-            </div>
+          <ul class="insight-list">
+            <li>
+              <span>Food</span>
+              <strong id="food-total">KSh 0</strong>
+            </li>
+            <li>
+              <span>Transport</span>
+              <strong id="transport-total">KSh 0</strong>
+            </li>
+            <li>
+              <span>Rent</span>
+              <strong id="rent-total">KSh 0</strong>
+            </li>
+            <li>
+              <span>Entertainment</span>
+              <strong id="entertainment-total">KSh 0</strong>
+            </li>
+            <li>
+              <span>Utilities</span>
+              <strong id="utilities-total">KSh 0</strong>
+            </li>
+          </ul>
 
-        </section>
-
-        <!-- Add Expense Form -->
-        <section class="add-expense-section" id="add-expense">
-
-            <h2>Add New Expense</h2>
-            <p>Enter your transaction information below.</p>
-
-            <form id="expense-form">
-
-                <div class="form-group">
-                    <label for="expense-name">Expense Name</label>
-                    <input
-                        type="text"
-                        id="expense-name"
-                        name="expense-name"
-                        placeholder="e.g. Shopping"
-                        required
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="expense-amount">Amount (KSh)</label>
-                    <input
-                        type="number"
-                        id="expense-amount"
-                        name="expense-amount"
-                        placeholder="Enter amount"
-                        min="1"
-                        required
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="expense-category">Category</label>
-                    <select
-                        id="expense-category"
-                        name="expense-category"
-                        required
-                    >
-                        <option value="">Select Category</option>
-                        <option value="Food">Food</option>
-                        <option value="Transport">Transport</option>
-                        <option value="Rent">Rent</option>
-                        <option value="Entertainment">Entertainment</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="expense-date">Date</label>
-                    <input
-                        type="date"
-                        id="expense-date"
-                        name="expense-date"
-                        required
-                    >
-                </div>
-
-                <button type="button" id="add-expense-btn">
-                    Add Expense
-                </button>
-
-            </form>
-        </section>
-
-        <!-- Expense Table -->
-        <section class="expenses-section" id="transactions">
-
-            <h2>Recent Transactions</h2>
-            <p>View your recent spending activities.</p>
-
-            <div class="table-container">
-
-                <table>
-
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Amount</th>
-                            <th>Category</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>Groceries</td>
-                            <td>KSh 2,500</td>
-                            <td>Food</td>
-                            <td>2026-10-20</td>
-                        </tr>
-
-                        <tr>
-                            <td>Bus Fare</td>
-                            <td>KSh 500</td>
-                            <td>Transport</td>
-                            <td>2026-10-21</td>
-                        </tr>
-
-                        <tr>
-                            <td>House Rent</td>
-                            <td>KSh 8,000</td>
-                            <td>Rent</td>
-                            <td>2026-10-22</td>
-                        </tr>
-
-                        <tr>
-                            <td>Movie</td>
-                            <td>KSh 1,500</td>
-                            <td>Entertainment</td>
-                            <td>2026-10-23</td>
-                        </tr>
-
-                        <tr>
-                            <td>Internet</td>
-                            <td>KSh 2,500</td>
-                            <td>Other</td>
-                            <td>2026-10-24</td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-        </section>
-
-        <!-- Instructions -->
-        <section class="instructions">
-
-            <details>
-                <summary>How to use Monexia Budget Tracker</summary>
-
-                <p>1. Enter the name of your expense.</p>
-                <p>2. Enter the amount you spent.</p>
-                <p>3. Select an expense category.</p>
-                <p>4. Choose the transaction date.</p>
-                <p>5. Click Add Expense to prepare your entry.</p>
-
-                <p class="note">
-                    Note: Automatic expense recording will be
-                    implemented in a future JavaScript lesson.
-                </p>
-
-            </details>
-
-        </section>
-
-        <!-- Educational Video -->
-        <section class="video-section">
-
-            <h2>Learn Personal Budgeting</h2>
-
+          <div class="tip-box">
+            <p class="tip-label">Smart tip</p>
             <p>
-                Watch this video to learn more about managing
-                your money and building better financial habits.
+              Keeping essential spending under 60% of your income helps you stay
+              on track with longer-term goals.
             </p>
+          </div>
+        </aside>
+      </section>
 
-            <div class="video-container">
+      <section class="panel transactions-panel" id="transactions">
+        <div class="panel-header table-header">
+          <div>
+            <p class="section-tag">Activity</p>
+            <h3>Recent transactions</h3>
+          </div>
+          <span class="live-pill">Live updates</span>
+        </div>
 
-                <iframe
-                    width="560"
-                    height="315"
-                    src="https://www.youtube.com/embed/6Ib-b8a3x9A"
-                    title="Personal Budgeting Tips"
-                    frameborder="0"
-                    allowfullscreen>
-                </iframe>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="transaction-table-body"></tbody>
+          </table>
+        </div>
+      </section>
 
-            </div>
+      <section class="tips-panel panel">
+        <div class="panel-header">
+          <div>
+            <p class="section-tag">Guidance</p>
+            <h3>How to use Monexia</h3>
+          </div>
+        </div>
 
-        </section>
+        <div class="details-wrap">
+          <details open>
+            <summary>Track every transaction</summary>
+            <p>
+              Add each payment or income source as it happens to keep your budget
+              accurate and easier to manage.
+            </p>
+          </details>
 
+          <details>
+            <summary>Review income and expense balance</summary>
+            <p>
+              Use the totals section to understand how much is available after
+              regular spending and saving goals.
+            </p>
+          </details>
+        </div>
+      </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <h3>Monexia</h3>
-        <p>Simple Financial Management for Everyone.</p>
-        <p>&copy; 2026 Monexia. All Rights Reserved.</p>
+    <footer class="site-footer">
+      <h4>Monexia</h4>
+      <p>Simple financial management for everyone.</p>
+      <p>© 2026 Monexia. All rights reserved.</p>
     </footer>
 
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
